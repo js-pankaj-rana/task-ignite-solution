@@ -1,0 +1,58 @@
+<div class="header">
+    <div class="page">
+        <h2 class="page-title">
+            <button mat-icon-button [routerLink]="['/']">
+                <mat-icon>
+                    <img src="./../../assets/svg/Back.svg" alt="back" />
+                </mat-icon>
+            </button>
+            <span>
+                {{topic.toUpperCase()}}
+            </span>
+        </h2>
+        <mat-form-field appearance="outline" class="full-width">
+            <input matInput placeholder="Search" [(ngModel)]="inputText" (input)="onInputChange(inputText)" />
+            <mat-icon matPrefix class="my-icon">
+                <img src="./../../assets/svg/Search.svg" />
+            </mat-icon>
+            <mat-icon *ngIf="inputText" matSuffix class="my-icon" (click)="clearInput()">
+                <img src="./../../assets/svg/Cancel.svg" />
+            </mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="content">
+        <div class="page">
+        <div *ngIf="loading" class="loader">Loading....</div>
+        <div *ngIf="emptyResult">No book found</div>
+        <mat-grid-list [cols]="cols" [rowHeight]="rowHeight">
+            <ng-container *ngIf="appliedBooksFilter; then filterBooksRef else booksRef"></ng-container>
+            <ng-template #filterBooksRef>
+            <mat-grid-tile *ngFor="let book of filterBooks" class="mat-elevation-z0">
+                <mat-card class="book-card mat-elevation-z0">
+                        <mat-card-content class="mat-elevation-z0" (click)="showBookDetail(book.textHtml)">
+                            <div class="image-wrapper" style="background-image: url({{book.img}})"></div>
+                        </mat-card-content>
+                        <mat-card-footer class="card-footer">
+                            <mat-card-title title={{book.title}}>{{book.title}}</mat-card-title>
+                            <div class="books-author" title="{{book.authorsName}}">{{book.authorsName}}</div>
+                        </mat-card-footer>
+                </mat-card>
+            </mat-grid-tile>
+        </ng-template>
+        <ng-template #booksRef>
+            <mat-grid-tile *ngFor="let book of books" class="mat-elevation-z0">
+                <mat-card class="book-card mat-elevation-z0">
+                        <mat-card-content class="mat-elevation-z0" (click)="showBookDetail(book.textHtml)">
+                            <div class="image-wrapper" style="background-image: url({{book.img}})"></div>
+                        </mat-card-content>
+                        <mat-card-footer class="card-footer">
+                            <mat-card-title title={{book.title}}>{{book.title}}</mat-card-title>
+                            <div class="books-author" title="{{book.authorsName}}">{{book.authorsName}}</div>
+                        </mat-card-footer>
+                </mat-card>
+            </mat-grid-tile>
+        </ng-template>
+        </mat-grid-list>
+        </div>
+    </div>
+</div>

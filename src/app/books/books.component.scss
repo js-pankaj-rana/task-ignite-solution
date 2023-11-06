@@ -1,0 +1,135 @@
+@import './../variables/_variable.scss';
+
+
+
+::ng-deep {
+  .mat-mdc-form-field-flex {
+    align-items: center;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: transparent !important;
+  }
+  
+  .mat-mdc-text-field-wrapper {
+    margin: 0 auto;
+    &.mdc-text-field--outlined {
+      .mat-mdc-form-field-infix {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        min-height: 40px;
+        display: flex;
+      }
+    }
+  }
+  .mat-mdc-form-field-icon-prefix {
+    &>.mat-icon {
+      padding: 10x;
+      img {
+        width:23px;
+      }
+    }
+  }
+  .mat-mdc-form-field-icon-suffix {
+    &>.mat-icon {
+    padding: 10x;
+      img {
+        width:15px;
+      }
+    }
+  }
+
+  .mat-mdc-text-field-wrapper, .mat-mdc-form-field-flex {
+    background-color: $dark-color;
+  }
+
+  .mat-form-field-appearance-outline.mat-form-field-disabled, ::ng-deep .mat-form-field-outline {
+    opacity: 0;
+    }
+}
+
+.full-width {
+  width: calc(100% - 60px);
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.page {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 1023px;
+  margin: 0 auto;
+  &-title{
+    display: flex;
+    align-items: center;
+    color: $primary-color; 
+  }
+}
+
+input.mat-mdc-input-element {
+  font-size: $font-size-medium;
+  font-weight: 600;
+  color: $darkest-color;
+  &::placeholder {
+    font-size: $font-size-medium;
+    font-weight: 600;
+    color: $darker-color;
+  }
+}
+  
+ .image-wrapper {
+    width: 114px;
+    height: 162px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .mat-mdc-card-title {
+    padding-top: 10px;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+    max-width: 114px;
+    max-height: 24px;
+    overflow: hidden;
+    white-space: inherit;
+    color: $darkest-color;
+  }
+
+  .mat-mdc-card {
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .mat-mdc-card-content{
+    padding: 0;
+    cursor: pointer;
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+  .books-author {
+    font-size: $font-size-xx-small;
+    color: $darker-color;
+    font-weight: 500;
+    max-width: 114px;
+    max-height: 12px;
+    overflow: hidden;
+  }
+
+  
+  .content {
+    background-color: $bg-color;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 80vh;
+    .loader {
+      font-size: $font-size-large;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }

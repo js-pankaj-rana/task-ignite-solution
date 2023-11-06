@@ -1,44 +1,33 @@
 
-<div class="courses-panel">
-
+<div layout="row" class="row-bg">
   <div class="header">
-
-    <h2 class="title">All Courses</h2>
-
-    <button mat-mini-fab routerLink="/add-new-course"
-            [matTooltip]="'Create a course'" matTooltipPosition="above"
-            [matTooltipShowDelay]="1000"
-            [matTooltipHideDelay]="2000"
-            [matTooltipDisabled]="true">
-      <mat-icon class="add-course-btn">add</mat-icon>
-    </button>
-
+    <div class="page">
+        <h1 class="title">Gutenberg Project</h1>
+        <p class="sub-title">A social cataloging website that allows you to
+        freely search its database of books,
+        annotations, and reviews.</p>
+    </div>
   </div>
 
-    <mat-tab-group>
-
-        <mat-tab label="Beginners">
-
-            <courses-card-list [courses]="beginnerCourses$ | async">
-
-
-            </courses-card-list>
-
-
-        </mat-tab>
-
-
-        <mat-tab label="Advanced">
-
-            <courses-card-list [courses]="advancedCourses$ | async">
-
-
-            </courses-card-list>
-
-        </mat-tab>
-
-    </mat-tab-group>
-
+  <div class="page">
+    <mat-grid-list [cols]="cols" [rowHeight]="rowHeight" class="list-grid">
+        <mat-grid-tile gutterSize="10px" *ngFor="let routeList of routeLists" class="list-route">
+            <div class="collection-item">
+                <div class="list-card">
+                    <div class="search-img">
+                        <img src="./../../assets/svg/{{routeList}}.svg" alt="{{routeList}}"/>
+                    </div>
+                    <div class="search-label"> {{routeList.toUpperCase()}}</div>
+                </div>
+                <button mat-icon-button [routerLink]="['books', routeList.toLowerCase()]">
+                    <mat-icon>
+                        <img src="./../../assets/svg/Next.svg" alt="go" />
+                    </mat-icon>
+                </button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>  
+</div>
 
 </div>
 
